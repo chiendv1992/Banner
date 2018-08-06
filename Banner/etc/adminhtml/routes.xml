@@ -10,5 +10,5 @@
         <route id="banner" frontName="banner">
             <module name="Manager_Banner" before="Magento_Backend" />
         </route>
-    </router>
+    </router> 
 </config>
