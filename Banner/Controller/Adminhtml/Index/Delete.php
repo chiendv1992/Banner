@@ -8,18 +8,10 @@ namespace Manager\Banner\Controller\Adminhtml\index;
 
 class Delete extends \Magento\Backend\App\Action
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
+
     const ADMIN_RESOURCE = 'Manager_Banner::delete';
 
-    /**
-     * Delete action
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     */
+
     public function execute()
     {
         // check if we know what should be deleted
@@ -30,7 +22,7 @@ class Delete extends \Magento\Backend\App\Action
             $title = "";
             try {
                 // init model and delete
-                $model = $this->_objectManager->create(\Manager\Banner\Model\Index::class);
+                $model = $this->_objectManager->create(\Manager\Banner\Model\Banner::class);
                 $model->load($id);
                 $title = $model->getTitle();
                 $model->delete();
@@ -50,7 +42,7 @@ class Delete extends \Magento\Backend\App\Action
                 // display error message
                 $this->messageManager->addError($e->getMessage());
                 // go back to edit form
-                return $resultRedirect->setPath('*/*/edit', ['page_id' => $id]);
+                return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }
         // display error message
