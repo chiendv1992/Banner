@@ -76,35 +76,26 @@
                         <message translate="true">Are you sure you want to delete selected items?</message>
                         <title translate="true">Delete items</title>
                     </confirm>
-                    <url path="manager/banner/massDelete"/>
+                    <url path="banner/index/massDelete"/>
                     <type>delete</type>
                     <label translate="true">Delete</label>
                 </settings>
             </action>
             <action name="disable">
                 <settings>
-                    <url path="manager/banner/massDisable"/>
+                    <url path="banner/index/massDisable"/>
                     <type>disable</type>
                     <label translate="true">Disable</label>
                 </settings>
             </action>
             <action name="enable">
                 <settings>
-                    <url path="manager/banner/massEnable"/>
+                    <url path="banner/index/massEnable"/>
                     <type>enable</type>
                     <label translate="true">Enable</label>
                 </settings>
             </action>
-            <action name="edit">
-                <settings>
-                    <callback>
-                        <target>editSelected</target>
-                        <provider>manager_banner_listing.manager_banner_listing.manager_banner_columns_editor</provider>
-                    </callback>
-                    <type>edit</type>
-                    <label translate="true">Edit</label>
-                </settings>
-            </action>
+
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
@@ -112,7 +103,7 @@
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
-                    <item name="saveUrl" xsi:type="url" path="manager/banner/inlineEdit"/>
+                    <item name="saveUrl" xsi:type="url" path="banner/index/inlineEdit"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
                 <param name="indexField" xsi:type="string">id</param>
@@ -149,7 +140,7 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                        <rule name="validate-title" xsi:type="boolean">true</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>
@@ -161,7 +152,7 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                        <rule name="validate-content" xsi:type="boolean">true</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>
@@ -185,7 +176,7 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="validate-identifier" xsi:type="boolean">true</rule>
+                        <rule name="validate-link" xsi:type="boolean">true</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>
@@ -194,7 +185,7 @@
         </column>
         <column name="status" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <options class="Magento\Cms\Model\Page\Source\IsActive"/>
+                <options class="Manager\Banner\Model\Banner\Source\IsActive"/>
                 <filter>select</filter>
                 <editor>
                     <editorType>select</editorType>

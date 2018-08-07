@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Manager\Banner\Controller\Adminhtml\Banner;
+namespace Manager\Banner\Controller\Adminhtml\Index;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
@@ -20,7 +20,7 @@ class MassDisable extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Magento_Cms::save';
+    const ADMIN_RESOURCE = 'Manager_Banner::save';
 
     /**
      * @var Filter
@@ -55,7 +55,7 @@ class MassDisable extends \Magento\Backend\App\Action
         $collection = $this->filter->getCollection($this->collectionFactory->create());
 
         foreach ($collection as $item) {
-            $item->setIsActive(false);
+            $item->setStatus(false);
             $item->save();
         }
 
