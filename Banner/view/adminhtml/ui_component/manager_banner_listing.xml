@@ -76,21 +76,21 @@
                         <message translate="true">Are you sure you want to delete selected items?</message>
                         <title translate="true">Delete items</title>
                     </confirm>
-                    <url path="cms/page/massDelete"/>
+                    <url path="manager/banner/massDelete"/>
                     <type>delete</type>
                     <label translate="true">Delete</label>
                 </settings>
             </action>
             <action name="disable">
                 <settings>
-                    <url path="cms/page/massDisable"/>
+                    <url path="manager/banner/massDisable"/>
                     <type>disable</type>
                     <label translate="true">Disable</label>
                 </settings>
             </action>
             <action name="enable">
                 <settings>
-                    <url path="cms/page/massEnable"/>
+                    <url path="manager/banner/massEnable"/>
                     <type>enable</type>
                     <label translate="true">Enable</label>
                 </settings>
