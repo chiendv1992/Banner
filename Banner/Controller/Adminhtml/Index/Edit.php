@@ -33,10 +33,6 @@ class Edit extends \Magento\Backend\App\Action
         return $resultBanner;
     }
 
-
-    /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
-     */
     public function execute()
     {
 //        die('Edit ');
@@ -58,7 +54,7 @@ class Edit extends \Magento\Backend\App\Action
         // Build form
         $resultPage = $this->_initAction();
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getImage() : __('Create Image'));
+            ->prepend($model->getId() ? $model->getTitle() : __('Create Image'));
         return $resultPage;
     }
 }
