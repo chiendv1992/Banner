@@ -3,40 +3,23 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Manager\Banner\Controller\Adminhtml\Banner;
+namespace Manager\Banner\Controller\Adminhtml\Index;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Manager\Banner\Model\ResourceModel\Banner\CollectionFactory;
 
-/**
- * Class MassDelete
- */
+
 class MassDelete extends \Magento\Backend\App\Action
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
-    const ADMIN_RESOURCE = 'Manager_Banner::banner_delete';
 
-    /**
-     * @var Filter
-     */
+    const ADMIN_RESOURCE = 'Manager_Banner::delete';
+
     protected $filter;
 
-    /**
-     * @var CollectionFactory
-     */
     protected $collectionFactory;
 
-    /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param CollectionFactory $collectionFactory
-     */
     public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory)
     {
         $this->filter = $filter;
@@ -44,24 +27,20 @@ class MassDelete extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
-    /**
-     * Execute action
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
-     */
+
     public function execute()
     {
+        // Lấy ra các bản ghi đang chọn sử dụng filter (Magento\Ui\Component\MassAction\Filter)
         $collection = $this->filter->getCollection($this->collectionFactory->create());
+        // Đếm số bản ghi đang chọn
         $collectionSize = $collection->getSize();
-
-        foreach ($collection as $page) {
-            $page->delete();
+        // Xóa bản ghi đang chọn
+        foreach ($collection as $banner) {
+            $banner->delete();
         }
-
+        // Thêm thông báo xóa thành công
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', $collectionSize));
-
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        // Redirect lại về trang List
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }

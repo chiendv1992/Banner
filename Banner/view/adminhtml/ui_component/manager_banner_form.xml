@@ -62,8 +62,8 @@
             </argument>
             <settings>
                 <dataType>boolean</dataType>
-                <label translate="true">Enable Page</label>
-                <dataScope>is_active</dataScope>
+                <label translate="true">Enable Banner</label>
+                <dataScope>status</dataScope>
             </settings>
             <formElements>
                 <checkbox>

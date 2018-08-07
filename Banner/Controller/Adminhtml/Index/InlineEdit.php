@@ -20,6 +20,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     }
     public function execute()
     {
+
         // Init result Json
         $resultJson = $this->jsonFactory->create();
         $error = false;
