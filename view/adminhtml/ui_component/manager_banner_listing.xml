@@ -57,17 +57,6 @@
                     </filters>
                 </templates>
             </settings>
-            <filterSelect name="store_id" provider="${ $.parentName }">
-                <settings>
-                    <captionValue>0</captionValue>
-                    <options class="Manager\Banner\Ui\Component\Listing\Column\Banner\Options"/>
-                    <label translate="true">Store View</label>
-                    <dataScope>store_id</dataScope>
-                    <imports>
-                        <link name="visible">componentType = column, index = ${ $.index }:visible</link>
-                    </imports>
-                </settings>
-            </filterSelect>
         </filters>
         <massaction name="listing_massaction">
             <action name="delete">

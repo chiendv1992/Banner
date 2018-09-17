@@ -14,8 +14,6 @@ class IsActive implements OptionSourceInterface
     {
         $this->banner = $banner;
     }
-
-
     public function toOptionArray()
     {
         $availableOptions = $this->banner->getAvailableStatuses();

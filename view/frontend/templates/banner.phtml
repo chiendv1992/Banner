@@ -1,0 +1,36 @@
+<?php
+$banners = $this->getBannerCollection()
+?>
+<div> <h1>Danh sách Banner</h1> </div>
+<table border="1" cellpadding="0" cellspacing="0">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>content</th>
+        <th>image</th>
+        <th>status</th>
+    </tr>
+    <?php foreach ($banners as $key => $value): ?>
+    <tr>
+        <td><?= $value['id'] ?></td>
+        <td><?= $value['title'] ?></td>
+        <td><?= $value['content'] ?></td>
+        <td><?= $value['image'] ?></td>
+        <td>
+            <?php
+                if($value['status']==0)
+                {
+                    echo __('Disable');
+                }
+                else
+                {
+                    echo __('Enable');
+                }
+                ?>
+        </td>
+
+
+    </tr>
+    <?php endforeach; ?>
+</table>
+

@@ -23,8 +23,6 @@ class Edit extends \Magento\Backend\App\Action
         $this->_coreRegistry = $registry;
         parent::__construct($context);
     }
-
-
     protected function _initAction()
     {
         // load layout, set active menu and breadcrumbs
