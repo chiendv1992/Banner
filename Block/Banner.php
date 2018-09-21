@@ -18,7 +18,8 @@ class Banner extends \Magento\Framework\View\Element\Template
         return __('Hello World');
     }
 
-    public function getBannerCollection(){
+    public function getBannerCollection()
+    {
         $banner = $this->_bannerFactory->create();
         return $banner->getCollection();
     }
